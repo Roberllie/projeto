@@ -1,16 +1,50 @@
-# React + Vite
+# Magic Touch 🪄
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido como **Projeto Final do curso Projeto Desenvolve**.
 
-Currently, two official plugins are available:
+A aplicação consiste em um **site fictício de e-commerce**, criado para praticar conceitos de desenvolvimento web utilizando **React** e consumo de **API externa**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Sobre o Projeto
 
-## React Compiler
+A **Magic Touch** é uma loja online fictícia com estética feminina.  
+O objetivo do projeto é simular a estrutura básica de um e-commerce, exibindo produtos obtidos de uma API e organizando a navegação em diferentes páginas.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O projeto demonstra conceitos importantes de desenvolvimento front-end, como:
 
-## Expanding the ESLint configuration
+- Estruturação de componentes em React
+- Navegação entre páginas com React Router
+- Consumo de API utilizando `fetch`
+- Organização de código em pastas
+- Layout responsivo simples
+- Separação de responsabilidades entre componentes, páginas e serviços
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛍 Funcionalidades
+
+- Menu de navegação funcional
+- Página inicial com produtos em destaque
+- Página de listagem de produtos
+- Página de promoções
+- Página de contato
+- Consumo de produtos da API FakeStore
+
+## 🧰 Tecnologias Utilizadas
+
+- React
+- Vite
+- JavaScript
+- HTML
+- CSS
+- React Router
+- FakeStore API
+
+## 🎯 Objetivo Acadêmico
+
+Este projeto foi desenvolvido com fins educacionais para consolidar conhecimentos adquiridos ao longo do curso **Projeto Desenvolve**, incluindo:
+
+- Desenvolvimento de interfaces web
+- Estruturação de aplicações React
+- Integração com APIs
+- Boas práticas de organização de código
+
+
+✨ Projeto desenvolvido para fins de estudo.
