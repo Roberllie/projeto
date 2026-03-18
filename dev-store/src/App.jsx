@@ -1,67 +1,62 @@
-import {useEffect,useState} from "react"
-import {BrowserRouter,Routes,Route} from "react-router-dom"
+import { useEffect, useState } from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Header from "./components/Header"
 
 import Home from "./pages/Home"
 import Products from "./pages/Products"
-import Promotions from "./pages/Promotions"
-import Contact from "./pages/Contact"
+import Cart from "./pages/Cart"
+import Login from "./pages/Login"
 
-import {getProducts} from "./services/api"
+import { getProducts } from "./services/api"
 
-function App(){
+function App() {
 
-const[products,setProducts]=useState([])
+  const [products, setProducts] = useState([])
 
-useEffect(()=>{
+  useEffect(() => {
 
-async function fetchProducts(){
+    async function fetchProducts() {
+      try {
+        const data = await getProducts()
+        setProducts(data)
+      } catch (error) {
+        console.error("Erro ao buscar produtos:", error)
+      }
+    }
 
-const data = await getProducts()
+    fetchProducts()
 
-setProducts(data)
+  }, [])
 
-}
+  return (
+    <BrowserRouter>
 
-fetchProducts()
+      <Header />
 
-},[])
+      <Routes>
 
-return(
+        <Route path="/" element={<Home />} />
 
-<BrowserRouter>
+        <Route
+          path="/products"
+          element={<Products products={products} />}
+        />
 
-<Header/>
+        <Route
+          path="/cart"
+          element={<Cart />}
+        />
 
-<Routes>
+        <Route
+          path="/login"
+          element={<Login />}
+        />
 
-<Route
-path="/"
-element={<Home products={products}/>}
-/>
+      </Routes>
 
-<Route
-path="/products"
-element={<Products products={products}/>}
-/>
-
-<Route
-path="/promotions"
-element={<Promotions/>}
-/>
-
-<Route
-path="/contact"
-element={<Contact/>}
-/>
-
-</Routes>
-
-</BrowserRouter>
-
-)
-
+    </BrowserRouter>
+  )
 }
 
 export default App

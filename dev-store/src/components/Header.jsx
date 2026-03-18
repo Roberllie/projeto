@@ -1,51 +1,47 @@
 import {Link} from "react-router-dom"
+import {useContext} from "react"
+import {CartContext} from "../context/CartContext"
 
 function Header(){
+
+const {cart} = useContext(CartContext)
+
+const totalItems = cart.reduce((acc,item)=>acc + item.quantity,0)
 
 return(
 
 <header style={{
-background:"#ffd6e7",
-padding:"20px 40px",
 display:"flex",
 justifyContent:"space-between",
 alignItems:"center",
-boxShadow:"0 2px 6px rgba(0,0,0,0.08)"
+padding:"20px 60px",
+background:"rgba(119, 13, 105, 0.47)",
+borderBottom:"1px solid #2b1c57"
 }}>
 
-<h1 style={{
-color:"#ff4fa3",
-fontWeight:"600",
-fontSize:"24px"
-}}>
-Magic Touch
-</h1>
+<Link to="/" style={{textDecoration:"none"}}>
+<h2 style={{color:"#7f3fbb"}}>
+Magic Store
+</h2>
+</Link>
 
 <nav>
 
 <ul style={{
 display:"flex",
-gap:"25px",
-listStyle:"none",
-fontWeight:"500",
-color:"#555"
+gap:"30px",
+listStyle:"none"
 }}>
 
-<li>
-<Link to="/">Home</Link>
-</li>
+<li><Link to="/products">Produtos</Link></li>
 
 <li>
-<Link to="/products">Produtos</Link>
+<Link to="/cart">
+Carrinho ({totalItems})
+</Link>
 </li>
 
-<li>
-<Link to="/promotions">Promoções</Link>
-</li>
-
-<li>
-<Link to="/contact">Contato</Link>
-</li>
+<li><Link to="/login">Login</Link></li>
 
 </ul>
 

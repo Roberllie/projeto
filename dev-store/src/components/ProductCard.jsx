@@ -48,7 +48,7 @@ marginBottom:"10px"
 </p>
 
 <button style={{
-background:"#ff9ec7",
+background:"#fc8fbc",
 color:"white",
 padding:"8px 16px",
 borderRadius:"8px",
