@@ -1,66 +1,73 @@
-function ProductCard({product}){
+import { useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import { CartContext } from "../context/CartContext"
 
-const priceBR = product.price.toLocaleString('pt-BR',{
-style:'currency',
-currency:'BRL'
-})
+function ProductCard({ product }) {
 
-return(
+  const navigate = useNavigate()
+  const { addToCart } = useContext(CartContext)
 
-<div style={{
-background:"white",
-borderRadius:"14px",
-padding:"20px",
-boxShadow:"0 4px 12px rgba(0,0,0,0.06)",
-textAlign:"center",
-transition:"0.2s"
-}}>
+  if (!product) return null
 
-<img
-src={product.image}
-alt={product.title}
-style={{
-height:"170px",
-objectFit:"contain",
-marginBottom:"12px"
-}}
-/>
+  const priceBR = product.price.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  })
 
-<h3 style={{
-fontSize:"15px",
-marginBottom:"10px",
-display:"-webkit-box",
-WebkitLineClamp:"2",
-WebkitBoxOrient:"vertical",
-overflow:"hidden",
-color:"#555"
-}}>
-{product.title}
-</h3>
+  return (
 
-<p style={{
-fontWeight:"bold",
-color:"#ff4fa3",
-fontSize:"18px",
-marginBottom:"10px"
-}}>
-{priceBR}
-</p>
+    <div
+      onClick={() => navigate(`/product/${product.id}`)}
+      style={{
+        background: "white",
+        borderRadius: "14px",
+        padding: "20px",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+        textAlign: "center",
+        cursor: "pointer"
+      }}
+    >
 
-<button style={{
-background:"#fc8fbc",
-color:"white",
-padding:"8px 16px",
-borderRadius:"8px",
-fontSize:"14px"
-}}>
-Comprar
-</button>
+      <img
+        src={product.image}
+        alt={product.title}
+        style={{
+          height: "150px",
+          objectFit: "contain",
+          marginBottom: "10px"
+        }}
+      />
 
-</div>
+      <h3 style={{ fontSize: "14px" }}>
+        {product.title}
+      </h3>
 
-)
+      <p style={{
+        color: "#ff4fa3",
+        fontWeight: "bold"
+      }}>
+        {priceBR}
+      </p>
 
+      <button
+        onClick={(e) => {
+          e.stopPropagation()
+          addToCart(product)
+        }}
+        style={{
+          background: "#fc8fbc",
+          color: "white",
+          padding: "8px",
+          borderRadius: "8px",
+          marginTop: "10px"
+        }}
+      >
+        Comprar
+      </button>
+
+    </div>
+
+  )
 }
 
 export default ProductCard
